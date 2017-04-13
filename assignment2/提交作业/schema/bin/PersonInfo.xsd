@@ -11,7 +11,7 @@
 	<element name="个人信息" type="tns:个人信息类型"></element>
 	
 	<complexType name="个人信息类型">
-		<all>
+		<all minOccurs="1">
 			<element name="所属部门编号" type="tns:部门编号类型"></element>
 	
 			<element name="姓名" type="string"></element>

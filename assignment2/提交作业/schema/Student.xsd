@@ -14,7 +14,7 @@
 	<element name="学生" type="tns:学生类型"></element>
 	
 	<complexType name="学生类型">
-		<all>
+		<all minOccurs="1">
 			<element name="学号" type="tns:学号类型"></element>
 
 			<element name="个人信息" type="nju:个人信息类型"></element>

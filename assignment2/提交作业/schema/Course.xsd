@@ -7,14 +7,14 @@ elementFormDefault="qualified">
 	<element name="课程" type="tns:课程类型"></element>
 	 
 	<complexType name="课程类型">
-		<sequence>
+		<all minOccurs="0">
 			<element name="课程编号" type="tns:课程编号类型"></element>
 			<element name="课程名称" type="string"></element>
 			<element name="学分" type="positiveInteger"></element>
 			<element name="学时" type="positiveInteger"></element>
 			<element name="类别" type="tns:课程类别类型"></element>
 			<element name="性质" type="tns:课程性质类型"></element>
-		</sequence>
+		</all>
 	</complexType>
 
     <simpleType name="课程编号类型">
