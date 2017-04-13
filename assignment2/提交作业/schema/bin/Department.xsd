@@ -9,7 +9,7 @@ elementFormDefault="qualified">
 	<element name="部门" type="tns:部门类型"></element>
  	
  	<complexType name="部门类型">
- 		<all minOccurs="1">
+ 		<all>
  			<element name="部门编号" type="tns:部门编号类型"></element>
 
     		<element name="部门名称" type="string"></element>
