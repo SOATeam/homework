@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://jw.nju.edu.cn/schema" 
+xmlns:tns="http://jw.nju.edu.cn/schema"  
+elementFormDefault="qualified">
+	
+	<element name="课程" type="tns:课程类型"></element>
+	 
+	<complexType name="课程类型">
+		<sequence>
+			<element name="课程编号" type="tns:课程编号类型"></element>
+			<element name="课程名称" type="string"></element>
+			<element name="学分" type="positiveInteger"></element>
+			<element name="学时" type="positiveInteger"></element>
+			<element name="类别" type="tns:课程类别类型"></element>
+			<element name="性质" type="tns:课程性质类型"></element>
+		</sequence>
+	</complexType>
+
+    <simpleType name="课程编号类型">
+    	<restriction base="string">
+    		<length value="6"></length>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="课程类别类型">
+		<restriction base="string">
+			<enumeration value="核心"></enumeration>
+			<enumeration value="选修"></enumeration>
+			<enumeration value="通修"></enumeration>
+			<enumeration value="平台"></enumeration>
+			<enumeration value="通识"></enumeration>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="课程性质类型">
+		<restriction base="string">
+			<enumeration value="可选"></enumeration>
+			<enumeration value="必选"></enumeration>
+			<enumeration value="指选"></enumeration>
+		</restriction>
+	</simpleType>
+
+    
+</schema>

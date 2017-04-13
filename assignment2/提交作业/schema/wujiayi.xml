@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<学生 xmlns="http://jw.nju.edu.cn/schema" 
+xmlns:tns="http://www.nju.edu.cn/schema" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://jw.nju.edu.cn/schema Student.xsd ">
+  <学号>141250150</学号>
+  <个人信息>
+    <tns:所属部门编号>141250000</tns:所属部门编号>
+    <tns:姓名>伍佳艺</tns:姓名>
+    <tns:身份证编号>12345678912345678X</tns:身份证编号>
+    <tns:性别>男</tns:性别>
+  </个人信息>
+  <所修课程及成绩>
+  	<所修课程 课程编号="123456" 成绩性质="平时成绩">
+  		<得分>0</得分>
+  	</所修课程>
+  	<所修课程 课程编号="123457" 成绩性质="期末成绩">
+  		<得分>99</得分>
+  	</所修课程>
+  	<所修课程 课程编号="123458" 成绩性质="期中成绩">
+  		<得分>100</得分>
+  	</所修课程>
+  </所修课程及成绩>
+</学生>
