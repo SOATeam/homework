@@ -77,11 +77,17 @@ public class DOMgenerate {
 		Element midEle1=doc.createElement("期中成绩");
 		Element finalEle1=doc.createElement("期末成绩");
 		Element complexEle1=doc.createElement("总评成绩");
-		Text usualValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text assiggValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text midValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text finalValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text complexValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		int usual=(int)Math.round(Math.random()*100);
+		int assign=(int)Math.round(Math.random()*100);
+		int mid=(int)Math.round(Math.random()*100);
+		int fina=(int)Math.round(Math.random()*100);
+		double temp=0.1*usual+0.1*assign+0.3*mid+0.5*fina;
+		int complex=(int) temp;
+		Text usualValue1=doc.createTextNode(String.valueOf(usual));
+		Text assiggValue1=doc.createTextNode(String.valueOf(assign));
+		Text midValue1=doc.createTextNode(String.valueOf(mid));
+		Text finalValue1=doc.createTextNode(String.valueOf(fina));
+		Text complexValue1=doc.createTextNode(String.valueOf(complex));
 		
 		courseListEle.appendChild(courseEle);
 		courseEle.appendChild(usualEle1);
