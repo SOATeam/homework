@@ -10,15 +10,9 @@
 	
 	<complexType name="学生列表类型">
 		<sequence minOccurs="0" maxOccurs="unbounded">
-			<element name="学生" type="tns:学生元素类型"></element>
+			<element name="学生" type="tns:学生类型"></element>
 		</sequence>
 	</complexType>
 	
-	<complexType name="学生元素类型">
-		<all>
-			<element name="学号" type="tns:学号类型"></element>
-			<element name="学生姓名" type="string"></element>
-			<element name="所属院系" type="string"></element>
-		</all>
-	</complexType>
+	
 </schema>
