@@ -63,44 +63,70 @@ public class DOMgenerate {
 		personInfoEle.appendChild(sexEle);
 		sexEle.appendChild(sexValue);
 		studentEle.appendChild(courseAndGradeEle);
-		addcourse(doc,courseAndGradeEle,courseEle1);
-		addcourse(doc,courseAndGradeEle,courseEle2);
-		addcourse(doc,courseAndGradeEle,courseEle3);
-		addcourse(doc,courseAndGradeEle,courseEle4);
-		addcourse(doc,courseAndGradeEle,courseEle5);
+		addcourse(doc,courseAndGradeEle,courseEle1,studentNum);
+		addcourse(doc,courseAndGradeEle,courseEle2,studentNum);
+		addcourse(doc,courseAndGradeEle,courseEle3,studentNum);
+		addcourse(doc,courseAndGradeEle,courseEle4,studentNum);
+		addcourse(doc,courseAndGradeEle,courseEle5,studentNum);
 		
 	}
 	
-	public static void addcourse(Document doc,Element courseListEle,Element courseEle){
+	public static void addcourse(Document doc,Element courseListEle,Element courseEle,String studentNum){
+		
+		
+		if(studentNum.equals("141250176")){
+			Element usualEle1=doc.createElement("平时成绩");
+			
+			
+			Element finalEle1=doc.createElement("期末成绩");
+			Element complexEle1=doc.createElement("总评成绩");
+			int usual=(int)(Math.round(Math.random()*100)*0.5);
+			
+			
+			int fina=(int)(Math.round(Math.random()*100)*0.5);
+			double temp=0.3*usual+0.7*fina;
+			int complex=(int) temp;
+			Text usualValue1=doc.createTextNode(String.valueOf(usual));
+			
+			Text finalValue1=doc.createTextNode(String.valueOf(fina));
+			Text complexValue1=doc.createTextNode(String.valueOf(complex));
+			
+			courseListEle.appendChild(courseEle);
+			courseEle.appendChild(usualEle1);
+			
+			courseEle.appendChild(finalEle1);
+			courseEle.appendChild(complexEle1);
+			usualEle1.appendChild(usualValue1);
+			
+			finalEle1.appendChild(finalValue1);
+			complexEle1.appendChild(complexValue1);
+		}else{
 		Element usualEle1=doc.createElement("平时成绩");
-		Element assignEle1=doc.createElement("作业成绩");
-		Element midEle1=doc.createElement("期中成绩");
+		
+		
 		Element finalEle1=doc.createElement("期末成绩");
 		Element complexEle1=doc.createElement("总评成绩");
 		int usual=(int)Math.round(Math.random()*100);
-		int assign=(int)Math.round(Math.random()*100);
-		int mid=(int)Math.round(Math.random()*100);
+		
+		
 		int fina=(int)Math.round(Math.random()*100);
-		double temp=0.1*usual+0.1*assign+0.3*mid+0.5*fina;
+		double temp=0.3*usual+0.7*fina;
 		int complex=(int) temp;
 		Text usualValue1=doc.createTextNode(String.valueOf(usual));
-		Text assiggValue1=doc.createTextNode(String.valueOf(assign));
-		Text midValue1=doc.createTextNode(String.valueOf(mid));
+		
 		Text finalValue1=doc.createTextNode(String.valueOf(fina));
 		Text complexValue1=doc.createTextNode(String.valueOf(complex));
 		
 		courseListEle.appendChild(courseEle);
 		courseEle.appendChild(usualEle1);
-		courseEle.appendChild(assignEle1);
-		courseEle.appendChild(midEle1);
+		
 		courseEle.appendChild(finalEle1);
 		courseEle.appendChild(complexEle1);
 		usualEle1.appendChild(usualValue1);
-		assignEle1.appendChild(assiggValue1);
-		midEle1.appendChild(midValue1);
+		
 		finalEle1.appendChild(finalValue1);
 		complexEle1.appendChild(complexValue1);
-		
+		}
 		
 	}
 	
