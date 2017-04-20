@@ -21,55 +21,27 @@ import org.w3c.dom.Text;
 public class DOMgenerate {
 	public static void addStudent(Document doc,Element root,String studentNum,String name,String sex){
 		
-		Element studentEle=doc.createElement("Ñ§Éú");
-		Element studentNumEle=doc.createElement("Ñ§ºÅ");
-		Element personInfoEle=doc.createElement("¸öÈËĞÅÏ¢");
-		Element departmentIDEle=doc.createElement("ËùÊô²¿ÃÅ±àºÅ");
-		Element studentNameEle=doc.createElement("ĞÕÃû");
-		Element identifyEle=doc.createElement("Éí·İÖ¤±àºÅ");
-		Element sexEle=doc.createElement("ĞÔ±ğ");
-		Element courseAndGradeEle=doc.createElement("ËùĞŞ¿Î³Ì¼°³É¼¨");
+		Element studentEle=doc.createElement("å­¦ç”Ÿ");
+		Element studentNumEle=doc.createElement("å­¦å·");
+		Element personInfoEle=doc.createElement("ä¸ªäººä¿¡æ¯");
+		Element departmentIDEle=doc.createElement("æ‰€å±éƒ¨é—¨ç¼–å·");
+		Element studentNameEle=doc.createElement("å§“å");
+		Element identifyEle=doc.createElement("èº«ä»½è¯ç¼–å·");
+		Element sexEle=doc.createElement("æ€§åˆ«");
+		Element courseAndGradeEle=doc.createElement("æ‰€ä¿®è¯¾ç¨‹åŠæˆç»©");
 		
-		Element courseEle1=doc.createElement("ËùĞŞ¿Î³Ì");
-		courseEle1.setAttribute("¿Î³Ì±àºÅ", "123456");	
-		Element courseEle2=doc.createElement("ËùĞŞ¿Î³Ì");
-		courseEle2.setAttribute("¿Î³Ì±àºÅ", "123457");
-		Element courseEle3=doc.createElement("ËùĞŞ¿Î³Ì");
-		courseEle3.setAttribute("¿Î³Ì±àºÅ", "123458");
-		Element courseEle4=doc.createElement("ËùĞŞ¿Î³Ì");
-		courseEle4.setAttribute("¿Î³Ì±àºÅ", "123459");
-		Element courseEle5=doc.createElement("ËùĞŞ¿Î³Ì");
-		courseEle5.setAttribute("¿Î³Ì±àºÅ", "123450");
+		Element courseEle1=doc.createElement("æ‰€ä¿®è¯¾ç¨‹");
+		courseEle1.setAttribute("è¯¾ç¨‹ç¼–å·", "123456");	
+		Element courseEle2=doc.createElement("æ‰€ä¿®è¯¾ç¨‹");
+		courseEle2.setAttribute("è¯¾ç¨‹ç¼–å·", "123457");
+		Element courseEle3=doc.createElement("æ‰€ä¿®è¯¾ç¨‹");
+		courseEle3.setAttribute("è¯¾ç¨‹ç¼–å·", "123458");
+		Element courseEle4=doc.createElement("æ‰€ä¿®è¯¾ç¨‹");
+		courseEle4.setAttribute("è¯¾ç¨‹ç¼–å·", "123459");
+		Element courseEle5=doc.createElement("æ‰€ä¿®è¯¾ç¨‹");
+		courseEle5.setAttribute("è¯¾ç¨‹ç¼–å·", "123450");
 		
-		Element usualEle1=doc.createElement("Æ½Ê±³É¼¨");
-		Element assignEle1=doc.createElement("×÷Òµ³É¼¨");
-		Element midEle1=doc.createElement("ÆÚÖĞ³É¼¨");
-		Element finalEle1=doc.createElement("ÆÚÄ©³É¼¨");
-		Element complexEle1=doc.createElement("×ÜÆÀ³É¼¨");
 		
-		Element usualEle2=doc.createElement("Æ½Ê±³É¼¨");
-		Element assignEle2=doc.createElement("×÷Òµ³É¼¨");
-		Element midEle2=doc.createElement("ÆÚÖĞ³É¼¨");
-		Element finalEle2=doc.createElement("ÆÚÄ©³É¼¨");
-		Element complexEle2=doc.createElement("×ÜÆÀ³É¼¨");
-		
-		Element usualEle3=doc.createElement("Æ½Ê±³É¼¨");
-		Element assignEle3=doc.createElement("×÷Òµ³É¼¨");
-		Element midEle3=doc.createElement("ÆÚÖĞ³É¼¨");
-		Element finalEle3=doc.createElement("ÆÚÄ©³É¼¨");
-		Element complexEle3=doc.createElement("×ÜÆÀ³É¼¨");
-		
-		Element usualEle4=doc.createElement("Æ½Ê±³É¼¨");
-		Element assignEle4=doc.createElement("×÷Òµ³É¼¨");
-		Element midEle4=doc.createElement("ÆÚÖĞ³É¼¨");
-		Element finalEle4=doc.createElement("ÆÚÄ©³É¼¨");
-		Element complexEle4=doc.createElement("×ÜÆÀ³É¼¨");
-		
-		Element usualEle5=doc.createElement("Æ½Ê±³É¼¨");
-		Element assignEle5=doc.createElement("×÷Òµ³É¼¨");
-		Element midEle5=doc.createElement("ÆÚÖĞ³É¼¨");
-		Element finalEle5=doc.createElement("ÆÚÄ©³É¼¨");
-		Element complexEle5=doc.createElement("×ÜÆÀ³É¼¨");
 		
 		Text studentNameValue=doc.createTextNode(name);
 		Text studentNumValue=doc.createTextNode(studentNum);
@@ -91,100 +63,38 @@ public class DOMgenerate {
 		personInfoEle.appendChild(sexEle);
 		sexEle.appendChild(sexValue);
 		studentEle.appendChild(courseAndGradeEle);
-		courseAndGradeEle.appendChild(courseEle1);
-		courseAndGradeEle.appendChild(courseEle2);
-		courseAndGradeEle.appendChild(courseEle3);
-		courseAndGradeEle.appendChild(courseEle4);
-		courseAndGradeEle.appendChild(courseEle5);
+		addcourse(doc,courseAndGradeEle,courseEle1);
+		addcourse(doc,courseAndGradeEle,courseEle2);
+		addcourse(doc,courseAndGradeEle,courseEle3);
+		addcourse(doc,courseAndGradeEle,courseEle4);
+		addcourse(doc,courseAndGradeEle,courseEle5);
 		
+	}
+	
+	public static void addcourse(Document doc,Element courseListEle,Element courseEle){
+		Element usualEle1=doc.createElement("å¹³æ—¶æˆç»©");
+		Element assignEle1=doc.createElement("ä½œä¸šæˆç»©");
+		Element midEle1=doc.createElement("æœŸä¸­æˆç»©");
+		Element finalEle1=doc.createElement("æœŸæœ«æˆç»©");
+		Element complexEle1=doc.createElement("æ€»è¯„æˆç»©");
 		Text usualValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		Text assiggValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		Text midValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		Text finalValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		Text complexValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
-		courseEle1.appendChild(usualEle1);
-		courseEle1.appendChild(assignEle1);
-		courseEle1.appendChild(midEle1);
-		courseEle1.appendChild(finalEle1);
-		courseEle1.appendChild(complexEle1);
+		courseListEle.appendChild(courseEle);
+		courseEle.appendChild(usualEle1);
+		courseEle.appendChild(assignEle1);
+		courseEle.appendChild(midEle1);
+		courseEle.appendChild(finalEle1);
+		courseEle.appendChild(complexEle1);
 		usualEle1.appendChild(usualValue1);
 		assignEle1.appendChild(assiggValue1);
 		midEle1.appendChild(midValue1);
 		finalEle1.appendChild(finalValue1);
 		complexEle1.appendChild(complexValue1);
 		
-		
-		Text usualValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text assiggValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text midValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text finalValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text complexValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		
-		courseEle2.appendChild(usualEle2);
-		courseEle2.appendChild(assignEle2);
-		courseEle2.appendChild(midEle2);
-		courseEle2.appendChild(finalEle2);
-		courseEle2.appendChild(complexEle2);
-		usualEle2.appendChild(usualValue2);
-		assignEle2.appendChild(assiggValue2);
-		midEle2.appendChild(midValue2);
-		finalEle2.appendChild(finalValue2);
-		complexEle2.appendChild(complexValue2);
-		
-		
-		Text usualValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text assiggValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text midValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text finalValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text complexValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		
-		courseEle3.appendChild(usualEle3);
-		courseEle3.appendChild(assignEle3);
-		courseEle3.appendChild(midEle3);
-		courseEle3.appendChild(finalEle3);
-		courseEle3.appendChild(complexEle3);
-		usualEle3.appendChild(usualValue3);
-		assignEle3.appendChild(assiggValue3);
-		midEle3.appendChild(midValue3);
-		finalEle3.appendChild(finalValue3);
-		complexEle3.appendChild(complexValue3);
-		
-		
-		Text usualValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text assiggValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text midValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text finalValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text complexValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		
-		courseEle4.appendChild(usualEle4);
-		courseEle4.appendChild(assignEle4);
-		courseEle4.appendChild(midEle4);
-		courseEle4.appendChild(finalEle4);
-		courseEle4.appendChild(complexEle4);
-		usualEle4.appendChild(usualValue4);
-		assignEle4.appendChild(assiggValue4);
-		midEle4.appendChild(midValue4);
-		finalEle4.appendChild(finalValue4);
-		complexEle4.appendChild(complexValue4);
-		
-		
-		Text usualValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text assiggValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text midValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text finalValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		Text complexValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
-		
-		courseEle5.appendChild(usualEle5);
-		courseEle5.appendChild(assignEle5);
-		courseEle5.appendChild(midEle5);
-		courseEle5.appendChild(finalEle5);
-		courseEle5.appendChild(complexEle5);
-		usualEle5.appendChild(usualValue5);
-		assignEle5.appendChild(assiggValue5);
-		midEle5.appendChild(midValue5);
-		finalEle5.appendChild(finalValue5);
-		complexEle5.appendChild(complexValue5);
 		
 	}
 	
@@ -193,23 +103,23 @@ public class DOMgenerate {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.newDocument();
-        Element root = doc.createElement("Ñ§ÉúÁĞ±í");
+        Element root = doc.createElement("å­¦ç”Ÿåˆ—è¡¨");
         doc.appendChild(root);
         Document document = builder.parse(new File("wujiayi.xml"));
-        Node sampleNode = doc.importNode(document.getElementsByTagName("Ñ§Éú").item(0), true);
+        Node sampleNode = doc.importNode(document.getElementsByTagName("å­¦ç”Ÿ").item(0), true);
         
         root.appendChild(sampleNode);
         
-        addStudent(doc,root,"141250176","ÓÚº£Ç¿","ÄĞ");
-        addStudent(doc,root,"141250171","Ò¦Åó","ÄĞ");
-        addStudent(doc,root,"141250209","ÖÜĞ¡·«","Å®");
-        addStudent(doc,root,"141250028","¶¡ÒøÃÅ","ÄĞ");
-        addStudent(doc,root,"141250047","ºÎÓÀ¿¡","ÄĞ");
-        addStudent(doc,root,"141250132","Íõ³Éˆ","ÄĞ");
-        addStudent(doc,root,"141250146","Íõ×Ó°²","ÄĞ");
-        addStudent(doc,root,"141250122","Ì¶Çí","Å®");
-        addStudent(doc,root,"141250010","³Â»¶","ÄĞ");
-        addStudent(doc,root,"141250009","³Â·É","ÄĞ");
+        addStudent(doc,root,"141250176","äºæµ·å¼º","ç”·");
+        addStudent(doc,root,"141250171","å§šæœ‹","ç”·");
+        addStudent(doc,root,"141250209","å‘¨å°å¸†","å¥³");
+        addStudent(doc,root,"141250028","ä¸é“¶é—¨","ç”·");
+        addStudent(doc,root,"141250047","ä½•æ°¸ä¿Š","ç”·");
+        addStudent(doc,root,"141250132","ç‹æˆåš","ç”·");
+        addStudent(doc,root,"141250146","ç‹å­å®‰","ç”·");
+        addStudent(doc,root,"141250122","æ½­ç¼","å¥³");
+        addStudent(doc,root,"141250010","é™ˆæ¬¢","ç”·");
+        addStudent(doc,root,"141250009","é™ˆé£","ç”·");
          
         Transformer t=TransformerFactory.newInstance().newTransformer();
         t.setOutputProperty(OutputKeys.INDENT,"yes");
