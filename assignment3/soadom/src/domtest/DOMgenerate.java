@@ -97,11 +97,11 @@ public class DOMgenerate {
 		courseAndGradeEle.appendChild(courseEle4);
 		courseAndGradeEle.appendChild(courseEle5);
 		
-		Text usualValue1=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text assiggValue1=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text midValue1=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text finalValue1=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text complexValue1=doc.createTextNode(String.valueOf(Math.random()*100));
+		Text usualValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text assiggValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text midValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text finalValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text complexValue1=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
 		courseEle1.appendChild(usualEle1);
 		courseEle1.appendChild(assignEle1);
@@ -115,11 +115,11 @@ public class DOMgenerate {
 		complexEle1.appendChild(complexValue1);
 		
 		
-		Text usualValue2=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text assiggValue2=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text midValue2=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text finalValue2=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text complexValue2=doc.createTextNode(String.valueOf(Math.random()*100));
+		Text usualValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text assiggValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text midValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text finalValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text complexValue2=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
 		courseEle2.appendChild(usualEle2);
 		courseEle2.appendChild(assignEle2);
@@ -133,11 +133,11 @@ public class DOMgenerate {
 		complexEle2.appendChild(complexValue2);
 		
 		
-		Text usualValue3=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text assiggValue3=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text midValue3=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text finalValue3=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text complexValue3=doc.createTextNode(String.valueOf(Math.random()*100));
+		Text usualValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text assiggValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text midValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text finalValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text complexValue3=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
 		courseEle3.appendChild(usualEle3);
 		courseEle3.appendChild(assignEle3);
@@ -151,11 +151,11 @@ public class DOMgenerate {
 		complexEle3.appendChild(complexValue3);
 		
 		
-		Text usualValue4=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text assiggValue4=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text midValue4=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text finalValue4=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text complexValue4=doc.createTextNode(String.valueOf(Math.random()*100));
+		Text usualValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text assiggValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text midValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text finalValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text complexValue4=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
 		courseEle4.appendChild(usualEle4);
 		courseEle4.appendChild(assignEle4);
@@ -169,11 +169,11 @@ public class DOMgenerate {
 		complexEle4.appendChild(complexValue4);
 		
 		
-		Text usualValue5=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text assiggValue5=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text midValue5=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text finalValue5=doc.createTextNode(String.valueOf(Math.random()*100));
-		Text complexValue5=doc.createTextNode(String.valueOf(Math.random()*100));
+		Text usualValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text assiggValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text midValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text finalValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
+		Text complexValue5=doc.createTextNode(String.valueOf(Math.round(Math.random()*100)));
 		
 		courseEle5.appendChild(usualEle5);
 		courseEle5.appendChild(assignEle5);
