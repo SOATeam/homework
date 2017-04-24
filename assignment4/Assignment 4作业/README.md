@@ -1,1 +1,5 @@
-占包专用
+xslt文件夹是使用xslt生成scorelist的产物
+ValidateScoreList.java和ValidateStudentList.java是检验输入输出是否符合规范
+XlstTransform.java是转换的程序
+studentList.xml是输入
+scorelist.xml是输出
