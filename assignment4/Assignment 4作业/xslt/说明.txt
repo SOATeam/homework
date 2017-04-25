@@ -1,0 +1,15 @@
+src文件夹下是第一部分的作业，将学生列表转化为成绩列表
+
+其中：
+
+src/bin和src/list下放的是四个xsd文件，src/Student.xsd和src/ScoreList.xsd也是作为shema的一部分。
+
+src/assignment3/ValidateScoreList.java 是用来验证成绩列表的规范的程序。
+
+src/assignment3/ValidateStudentList.java 是用来验证学生列表的规范的程序。
+
+src/assignment3/XsltTransform.java 是用来执行转换的程序。
+
+src/StudentList.xml是上次作业的产物，用来作为输入的。
+
+src/ScoreList.xml是这次作业的结果，是输出。

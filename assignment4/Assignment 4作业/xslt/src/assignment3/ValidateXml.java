@@ -11,9 +11,9 @@ import javax.xml.validation.Validator;
 
 import org.xml.sax.SAXException;
 
-public class ValidateStudentList {
+public class ValidateXml {
 
-	private ValidateStudentList() {
+	private ValidateXml() {
 
     }
 
