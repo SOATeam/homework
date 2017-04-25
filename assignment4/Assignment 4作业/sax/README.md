@@ -1,0 +1,14 @@
+#作业提交说明
+ScoreList.xml是输入文件
+FailScoreList.xml是输出文件
+
+
+其中SAX是Main方法的入口，负责对XML文档进行校验和产生新的XML文件
+
+CourseItem是存储每门课程的数据结构
+
+ScoreItem是存储分数的数据结构
+
+FindFailScoreHandler是具体负责查找符合要求的成绩的实现类
+
+Builder是生成新的XML的实现类
