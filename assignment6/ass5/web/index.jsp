@@ -8,9 +8,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>SOAP第五次作业</title>
+    <title>SOAP第六次作业</title>
   </head>
   <body>
-  服务启动成功,请输入您需要查询的学号信息
+
+  <form action="/score/modify" method="post">
+      <table>
+
+        <tr>
+          <td>学号:<input name="studentid" type="text"></td>
+        </tr>
+        <tr>
+          <td>课程编号:<input name="courserid" type="text"></td>
+        </tr>
+        <%--<tr>--%>
+          <%--<td>成绩性质:<input name="type" type="text"></td>--%>
+        <%--</tr>--%>
+        <tr>
+          <td>新成绩:<input name="score" type="text"></td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="修改"></td>
+        </tr>
+      </table>
+
+  </form>
   </body>
 </html>
