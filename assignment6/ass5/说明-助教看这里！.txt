@@ -1,0 +1,14 @@
+截图 文件夹下是运行结果的截图
+
+request.xml 是 需要修改的某个学生、某个课、新成绩
+result.xml 是 返回的修改后的该学生的成绩列表
+
+用法是在request.xml里填写修改信息，然后运行程序，点击“修改”按钮（如 截图/查询示例.png 所示）
+
+src文件夹下是代码，有两个servlet：
+modifyServlet.java负责读取request.xml，实现POST绑定并发送request，将返回的response存成result.xml 
+ScoreServlet.java 进行处理并返回response
+
+所有学生成绩列表以代码形式编写在src/util/InitUtil.java里
+
+src/model里放了相关数据结构
