@@ -15,18 +15,20 @@
   <form action="/score/modify" method="post">
       <table>
 
-        <tr>
-          <td>学号:<input name="studentid" type="text"></td>
-        </tr>
-        <tr>
-          <td>课程编号:<input name="courserid" type="text"></td>
-        </tr>
         <%--<tr>--%>
-          <%--<td>成绩性质:<input name="type" type="text"></td>--%>
+          <%--<td>学号:<input name="studentid" type="text"></td>--%>
         <%--</tr>--%>
-        <tr>
-          <td>新成绩:<input name="score" type="text"></td>
-        </tr>
+        <%--<tr>--%>
+          <%--<td>课程编号:<input name="courseid" type="text"></td>--%>
+        <%--</tr>--%>
+        <%--&lt;%&ndash;<tr>&ndash;%&gt;--%>
+          <%--&lt;%&ndash;<td>成绩性质:<input name="type" type="text"></td>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;</tr>&ndash;%&gt;--%>
+        <%--<tr>--%>
+          <%--<td>新成绩:<input name="score" type="text"></td>--%>
+        <%--</tr>--%>
+
+         <p>将要修改的信息放入request.xml中</p>
         <tr>
           <td><input type="submit" value="修改"></td>
         </tr>
