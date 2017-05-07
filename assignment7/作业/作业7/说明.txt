@@ -1,0 +1,2 @@
+xsd文件夹里放了那六个schema文件
+ScoreManage.wsdl是本次的作业
