@@ -53,7 +53,8 @@ public class ModifyServlet extends HttpServlet {
 //        String score=request.getParameter("score");
 
         String urlString = "http://localhost:8080/score/find";
-        String xmlFile = "D:\\university\\junior\\SOA\\soaTeam\\homework\\assignment6\\ass5\\request.xml";// 要发送的soap格式文件
+        String xmlFile = "/request.xml";// 要发送的soap格式文件
+//        System.out.println(ModifyServlet.class.getResource("/hh").getFile());
         //?
 //        String soapActionString = "http://WebXml.com.cn/getWeatherbyCityName";//Soap 1.1中使用
         URL url = new URL(urlString);
@@ -77,7 +78,7 @@ public class ModifyServlet extends HttpServlet {
         BufferedReader in = new BufferedReader(is);
         String inputLine;
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("D:\\university\\junior\\SOA\\soaTeam\\homework\\assignment6\\ass5\\result.xml"),"utf-8"));// 将结果存放的位置
+                new FileOutputStream("/result.xml"),"utf-8"));// 将结果存放的位置
         while ((inputLine = in.readLine()) != null) {
             System.out.println(inputLine);
             bw.write(inputLine);

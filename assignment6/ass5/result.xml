@@ -1,0 +1,28 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header>
+        <nju:check xmlns:nju="http://www.nju.edu.cn/schema" SOAP-ENV:mustUnderstand="0"
+                   SOAP-ENV:role="http://www.w3.org/2003/05/soap-envelope/role/next">
+            <nju:checkCode>ef5193e84c0b1c7d</nju:checkCode>
+        </nju:check>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body xmlns:nju="http://www.nju.edu.cn/schema" xmlns:tns="http://jw.nju.edu.cn/schema">
+        <学生 xmlns="tns">
+            <tns:学号>141250176</tns:学号>
+            <tns:姓名>于海强</tns:姓名>
+            <tns:成绩信息>
+                <tns:课程编号>11</tns:课程编号>
+                <tns:课程名称>离散数学</tns:课程名称>
+                <tns:课程成绩>100.0</tns:课程成绩>
+                <tns:课程编号>17</tns:课程编号>
+                <tns:课程名称>微积分</tns:课程名称>
+                <tns:课程成绩>50.0</tns:课程成绩>
+                <tns:课程编号>8</tns:课程编号>
+                <tns:课程名称>计算机组织系统</tns:课程名称>
+                <tns:课程成绩>99.0</tns:课程成绩>
+                <tns:课程编号>10</tns:课程编号>
+                <tns:课程名称>计算机网络</tns:课程名称>
+                <tns:课程成绩>100.0</tns:课程成绩>
+            </tns:成绩信息>
+        </学生>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
