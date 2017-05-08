@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://www.w3.org/ns/wsdl"
+	targetNamespace="http://jw.nju.edu.cn/wsdl" 
+	xmlns:tns="http://jw.nju.edu.cn/wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsoap="http://www.w3.org/ns/wsdl/soap"
+
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:import namespace="http://jw.nju.edu.cn/schema"
+			schemaLocation="../Verify.xsd" />
+		<xsd:import namespace="http:jw.nju.edu.cn/schema"
+			schemaLocation="../VerifyResult.xsd" />
+
+		<xsd:element name="InvalidDataFault" type="xsd:string" />
+	</types>
+
+	<interface name="StudentVerifyInterface">
+	
+		<fault name="InvalidVerifyFault" element="tns:InvalidDataFault">
+			<documentation>验证请求的格式错误</documentation>
+		</fault>
+
+		<operation name="VerifyStudent" 
+			pattern="http://www.w3.org/ns/wsdl/in-out"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:验证信息" />
+			<output messageLabel="Out" elemnt="tns:验证结果" />
+			<infault ref="tns:InvalidVerifyFault" messageLabel="In" />
+		</operation>
+
+	</interface>
+
+	<binding name="StudentVerifyBinding"
+		interface="tns:StudentVerifyInterface"
+		type="http://www.w3.org/ns/wsdl/soap" 
+		wsoap:protocal="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+		
+		<operation ref="tns:VerifyStudent"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+			
+		<fault ref="tns:InvalidVerifyFault" wsoap:code="soap:Sender" />
+		
+	</binding>
+	
+	<service name="StudentVerifyService"
+		interface="tns:StudentVerifyInterface">
+		<endpoint name="StudentVerifyEndpoint"
+			binding="tns:StudentVerifyBinding"
+			address="http://localhost:8080/student/VerifyServlet"/>
+	</service>
+</definitions>

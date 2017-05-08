@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://www.w3.org/ns/wsdl"
+	targetNamespace="http://jw.nju.edu.cn/wsdl" 
+	xmlns:tns="http://jw.nju.edu.cn/wsdl"
+	xmlns:nju="http://www.nju.edu.cn/schema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsoap="http://www.w3.org/ns/wsdl/soap"
+
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:import namespace="http://www.nju.edu.cn/schema"
+			schemaLocation="../xsd/bin/PersonInfo.xsd" />
+		<xsd:import namespace="http:jw.nju.edu.cn/schema"
+			schemaLocation="../xsd/Student.xsd" />
+
+		<xsd:element name="InvalidDataFault" type="xsd:string" />
+
+		<xsd:element name="StudentID" type="tns:学号类型" />
+		<xsd:element name="StudentName" type="String"/>
+		<xsd:element name="Student" type="tns:学生类型"/>
+		<xsd:element name="StudentInfo" type="nju:个人信息类型"/>
+		
+	</types>
+
+	<interface name="StudentInfoManageInterface">
+		<fault name="InvalidStudentIDFault" element="tns:InvalidDataFault">
+			<documentation>学号格式错误</documentation>
+		</fault>
+		<fault name="InvalidStudentFault" element="tns:InvalidDataFault">
+			<documentation>学生格式错误</documentation>
+		</fault>
+		<fault name="InvalidStudentInfoFault" element="tns:InvalidDataFault">
+			<documentation>学生信息格式错误</documentation>
+		</fault>
+		<fault name="StudentIDNotFoundFault" element="tns:InvalidDataFault">
+			<documentation>学号对应的学生未找到</documentation>
+		</fault>
+		<fault name="StudentNameNotFoundFault" element="tns:InvalidDataFault">
+			<documentation>姓名对应的学生未找到</documentation>
+		</fault>
+
+		<operation name="addStudent"
+			pattern="http://www.w3.org/ns/wsdl/in-only"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:Student" />
+			<infault ref="tns:InvalidStudentFault" messageLabel="In" />
+		</operation>
+
+		<operation name="deleteStudentByStudentID" 
+			pattern="http://www.w3.org/ns/wsdl/in-only"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:StudentID" />
+			<infault ref="tns:InvalidStudentIDFault" messageLabel="In" />
+			<infault ref="tns:StudentIDNotFoundFault" messageLabel="In" />
+		</operation>
+		
+		<operation name="getStudentInfoByStudentID" 
+			pattern="http://www.w3.org/ns/wsdl/in-out"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:StudentID" />
+			<output messageLabel="Out" element="tns:StudentInfo" />
+			<infault ref="tns:InvalidStudentIDFault" messageLabel="In" />
+			<outfault ref="tns:StudentIDNotFoundFault" messageLabel="Out" />
+		</operation>
+		
+		<operation name="getStudentInfoByStudentName" 
+			pattern="http://www.w3.org/ns/wsdl/in-out"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:StudentName" />
+			<output messageLabel="Out" element="tns:StudentInfo" />
+			<outfault ref="tns:StudentNameNotFoundFault" messageLabel="Out" />
+		</operation>
+
+		<operation name="modifyStudentInfo" 
+			pattern="http://www.w3.org/ns/wsdl/in-out"
+			style="http://www.w3.org/ns/wsdl/style/iri" wsdlx:safe="true">
+
+			<input messageLabel="In" element="tns:StudentInfo" />
+			<output messageLabel="Out" element="tns:StudentInfo" />
+			<outfault ref="tns:StudentNameNotFoundFault" messageLabel="Out" />
+			<outfault ref="tns:InvalidStudentInfoFault" messageLabel="Out" />
+		</operation>
+
+	</interface>
+
+	<binding name="StudentInfoManageBinding" 
+		interface="tns:StudentInfoManageInterface"
+		type="http://www.w3.org/ns/wsdl/soap" 
+		wsoap:protocal="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+		
+		<operation ref="tns:addStudent"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+		<operation ref="tns:deleteStudentByStudentID"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+		<operation ref="tns:getStudentInfoByStudentID"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+		<operation ref="tns:getStudentInfoByStudentName"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+		<operation ref="tns:modifyStudentInfo"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" />
+		
+			
+		<fault ref="tns:InvalidStudentIDFault" wsoap:code="soap:Sender" />
+		<fault ref="tns:InvalidStudentFault" wsoap:code="soap:Sender" />
+		<fault ref="tns:InvalidStudentInfoFault" wsoap:code="soap:Sender" />
+		<fault ref="tns:StudentIDNotFoundFault" wsoap:code="soap:Sender" />
+		<fault ref="tns:StudentNameNotFoundFault" wsoap:code="soap:Sender" />
+		
+	</binding>
+	
+	<service name="StudentInfoService"
+		interface="tns:StudentInfoManageInterface">
+		<endpoint name="StudentInfoEndpoint"
+			binding="tns:StudentInfoManageBinding"
+			address="http://localhost:8080/student/StudentInfoServlet"/>
+	</service>
+</definitions>

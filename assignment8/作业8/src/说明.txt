@@ -1,0 +1,2 @@
+xsd 文件夹里放了shema文件。其中本次作业新增schema文件为 Verify.xsd  和 VerifyResult.xsd
+两个wsdl文件对应两个服务
