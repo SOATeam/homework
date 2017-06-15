@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jw.nju.edu.cn/schema" xmlns:nju="http://www.nju.edu.cn/schema" targetNamespace="http://jw.nju.edu.cn/schema" elementFormDefault="qualified">
+	
+	<simpleType name="得分类型">
+		<restriction base="int">
+			<minInclusive value="0"/>
+			<maxInclusive value="100"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="成绩类型">
+        <restriction base="string">
+            <enumeration value="平时成绩"/>
+            <enumeration value="期末成绩"/>
+            <enumeration value="总评成绩"/>
+        </restriction>
+    </simpleType>
+</schema>

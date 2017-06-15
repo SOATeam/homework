@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://jw.nju.edu.cn/wsdl" 
+	xmlns:tns="http://jw.nju.edu.cn/wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema targetNamespace="http://jw.nju.edu.cn/wsdl">
+
+			<xsd:import namespace="http://jw.nju.edu.cn/schema"
+				schemaLocation="xsd/Verify.xsd" />
+			<xsd:import namespace="http:jw.nju.edu.cn/schema"
+				schemaLocation="xsd/VerifyResult.xsd" />
+
+			<xsd:element name="InvalidDataFault" type="xsd:string" />
+			<xsd:element name="验证信息" type="xsd:string" />
+			<xsd:element name="验证结果" type="xsd:string" />
+		</xsd:schema>
+	</types>
+
+	<message name="InvalidVerifyFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<message name="VerifyStudentIn">
+		<part element="tns:验证信息" name="fault"/>
+	</message>
+
+	<message name="VerifyStudentOut">
+		<part element="tns:验证结果" name="fault"/>
+	</message>
+
+	<portType name="StudentVerifyInterface">
+
+		<operation name="VerifyStudent" >
+
+			<input message="tns:VerifyStudentIn" />
+			<output message="tns:VerifyStudentOut" />
+			<fault message="tns:InvalidVerifyFault" name="fault"/>
+		</operation>
+
+	</portType>
+
+	<binding name="StudentVerifyBinding"
+			 type="tns:StudentVerifyInterface">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<operation name="VerifyStudent">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/VerifyStudent" />
+
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+
+		</operation>
+			
+	</binding>
+	
+	<service name="StudentVerifyService">
+		<port name="StudentVerifyEndpoint" binding="tns:StudentVerifyBinding">
+			<soap:address location="http://localhost:8080/assignment10WSDL/services/StudentVerifyService" />
+		</port>
+	</service>
+</definitions>

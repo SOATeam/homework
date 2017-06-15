@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jw.nju.edu.cn/schema" targetNamespace="http://jw.nju.edu.cn/schema" elementFormDefault="qualified">
+	
+	<include schemaLocation="PersonInfo.xsd"/>
+	<include schemaLocation="Course.xsd"/>
+	<include schemaLocation="ScoreDescription.xsd"/>
+
+	<complexType name="学生成绩列表的结构">
+		<sequence>
+			<element name="个人基本信息" type="tns:个人基本信息类型"/>
+			<element name="个人成绩" type="tns:个人成绩类型"/>
+		</sequence>
+	</complexType>
+	<complexType name="个人成绩类型">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element name="单科成绩" type="tns:单科成绩类型"/>
+		</sequence>
+	</complexType>
+	<complexType name="单科成绩类型">
+		<sequence>
+			<element name="课程" type="tns:课程类型"/>
+			<element name="平时成绩" type="tns:得分类型"/>
+			<element name="期末成绩" type="tns:得分类型"/>
+			<element name="总评成绩" type="tns:得分类型"/>
+		</sequence>
+	</complexType>
+	
+	
+	<complexType name="添加或修改学生成绩的结构">
+		<sequence>
+			<element name="学号" type="tns:学号类型"/>
+			<element name="课程编号" type="tns:课程编号类型"/>
+			<element name="成绩类型" type="tns:成绩类型"/>
+			<element name="得分" type="tns:得分类型"/>
+		</sequence>
+	</complexType>
+	
+	
+	<complexType name="删除学生成绩的结构">
+		<sequence>
+			<element name="学号" type="tns:学号类型"/>
+			<element name="课程编号" type="tns:课程编号类型"/>
+			<element name="成绩类型" type="tns:成绩类型"/>
+		</sequence>
+	</complexType>
+	
+</schema>

@@ -1,0 +1,122 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentInfoService WSDL wsdl -->
+
+  <service name="StudentInfoEndpoint" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServiceElement" value="StudentInfoService"/>
+      <parameter name="schemaQualified" value="http://jw.nju.edu.cn/schema"/>
+      <parameter name="schemaUnqualified" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServicePort" value="StudentInfoEndpoint"/>
+      <parameter name="className" value="wsdl.StudentInfoManageBindingImpl"/>
+      <parameter name="wsdlPortType" value="StudentInfoManageInterface"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="addStudent" qname="addStudent" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" mep="oneway" >
+        <parameter qname="pns:Student" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:学生类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.InvalidStudentFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteStudentByStudentID" qname="deleteStudentByStudentID" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" mep="oneway" >
+        <parameter qname="pns:StudentID" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:学号类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault1" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.InvalidStudentIDFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="fault2" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.StudentIDNotFoundFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStudentInfoByStudentID" qname="getStudentInfoByStudentID" returnQName="retNS:StudentInfo" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:个人基本信息类型" xmlns:rtns="http://jw.nju.edu.cn/schema" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" >
+        <parameter qname="pns:StudentID" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:学号类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault1" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.InvalidStudentIDFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="fault2" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.StudentIDNotFoundFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStudentInfoByStudentName" qname="getStudentInfoByStudentName" returnQName="retNS:StudentInfo" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:个人基本信息类型" xmlns:rtns="http://jw.nju.edu.cn/schema" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" >
+        <parameter qname="pns:StudentName" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="fault" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.StudentNameNotFoundFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modifyStudentInfo" qname="modifyStudentInfo" returnQName="retNS:StudentInfo" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:个人基本信息类型" xmlns:rtns="http://jw.nju.edu.cn/schema" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" >
+        <parameter qname="pns:StudentInfo" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:个人基本信息类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault1" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.StudentNameNotFoundFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="fault2" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.InvalidStudentInfoFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addStudent getStudentInfoByStudentID deleteStudentByStudentID modifyStudentInfo getStudentInfoByStudentName"/>
+
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:学生类型"
+        type="java:schema.学生类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:单位信息类型"
+        type="java:schema.单位信息类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:个人成绩类型"
+        type="java:schema.个人成绩类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:学号类型"
+        type="java:java.lang.String"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:个人基本信息类型"
+        type="java:schema.个人基本信息类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:课程编号类型"
+        type="java:java.lang.String"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:部门编号类型"
+        type="java:java.lang.String"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:课程类型"
+        type="java:schema.课程类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:单科成绩类型"
+        type="java:schema.单科成绩类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,106 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ScoreService WSDL wsdl -->
+
+  <service name="ScorePort" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServiceElement" value="ScoreService"/>
+      <parameter name="schemaQualified" value="http://jw.nju.edu.cn/schema"/>
+      <parameter name="schemaUnqualified" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServicePort" value="ScorePort"/>
+      <parameter name="className" value="wsdl.ScoreSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ScoreInterface"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="searchScore" qname="searchScore" returnQName="retNS:scoreList" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:单个学生成绩列表类型" xmlns:rtns="http://jw.nju.edu.cn/schema" returnItemQName="tns:单项成绩" xmlns:tns="http://jw.nju.edu.cn/schema" soapAction="http://jw.nju.edu.cn/wsdl/searchScore" >
+        <parameter qname="pns:studentNo" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:学号类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault" qname="fns:invalidDataError" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.SearchScoreFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addScore" qname="addScore" returnQName="retNS:isSuccess" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://jw.nju.edu.cn/wsdl/addScore" >
+        <parameter qname="pns:addScore" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:添加或修改成绩类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault" qname="fns:invalidDataError" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.AddScoreFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteScore" qname="deleteScore" returnQName="retNS:isSuccess" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://jw.nju.edu.cn/wsdl/deleteScore" >
+        <parameter qname="pns:delScore" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:删除成绩类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault" qname="fns:invalidDataError" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.DeleteScoreFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modifyScore" qname="modifyScore" returnQName="retNS:isSuccess" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://jw.nju.edu.cn/wsdl/modifyScore" >
+        <parameter qname="pns:addScore" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:添加或修改成绩类型" xmlns:tns="http://jw.nju.edu.cn/schema"/>
+        <fault name="fault" qname="fns:invalidDataError" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.ModifyScoreFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="searchScore deleteScore addScore modifyScore"/>
+
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:成绩性质类型"
+        type="java:schema.成绩性质类型"
+        serializer="org.apache.axis.encoding.ser.EnumSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.EnumDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:学号类型"
+        type="java:java.lang.String"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:添加或修改成绩类型"
+        type="java:schema.添加或修改成绩类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:单个学生成绩列表类型"
+        type="java:wsdl.单项成绩类型[]"
+        innerType="cmp-ns:单项成绩类型" xmlns:cmp-ns="http://jw.nju.edu.cn/schema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:课程编号类型"
+        type="java:java.lang.String"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:得分类型"
+        type="java:int"
+        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:删除成绩类型"
+        type="java:schema.删除成绩类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:单项成绩类型"
+        type="java:schema.单项成绩类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

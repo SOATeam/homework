@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://jw.nju.edu.cn/wsdl" 
+	xmlns:tns="http://jw.nju.edu.cn/wsdl"
+
+	xmlns:jw="http://jw.nju.edu.cn/schema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema targetNamespace="http://jw.nju.edu.cn/wsdl">
+			<xsd:import namespace="http://www.nju.edu.cn/schema"
+				schemaLocation="xsd/PersonInfo.xsd" />
+			<xsd:import namespace="http:jw.nju.edu.cn/schema"
+				schemaLocation="xsd/Student.xsd" />
+
+			<xsd:element name="InvalidDataFault" type="xsd:string" />
+
+			<xsd:element name="StudentID" type="jw:学号类型" />
+			<xsd:element name="StudentName" type="xsd:string"/>
+			<xsd:element name="Student" type="jw:学生类型"/>
+			<xsd:element name="StudentInfo" type="jw:个人基本信息类型"/>
+		</xsd:schema>
+	</types>
+
+	<message name="addStudentInput">
+		<part element="tns:Student" name="addStudentIn"/>
+	</message>
+
+	<message name="deleteByIDInput">
+		<part element="tns:StudentID" name="deleteByIDIn"/>
+	</message>
+
+	<message name="getInfoByIdInput">
+		<part element="tns:StudentID" name="getInfoByIdIn"/>
+	</message>
+
+	<message name="getInfoByIdOutput">
+		<part element="tns:StudentInfo" name="getInfoByIdOut"/>
+	</message>
+
+	<message name="getInfoByNameInput">
+		<part element="tns:StudentName" name="getInfoByNameIn"/>
+	</message>
+
+	<message name="getInfoByNameOutput">
+		<part element="tns:StudentInfo" name="getInfoByNameOut"/>
+	</message>
+
+	<message name="modInfoInput">
+		<part element="tns:StudentInfo" name="modInfoIn"/>
+	</message>
+
+	<message name="modInfoOutput">
+		<part element="tns:StudentInfo" name="modInfoOut"/>
+	</message>
+
+
+
+	<message name="InvalidStudentIDFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<message name="InvalidStudentFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<message name="InvalidStudentInfoFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<message name="StudentIDNotFoundFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<message name="StudentNameNotFoundFault">
+		<part element="tns:InvalidDataFault" name="fault"/>
+	</message>
+
+	<portType name="StudentInfoManageInterface">
+
+		<operation name="addStudent">
+
+			<input message="tns:addStudentInput"/>
+			<fault message="tns:InvalidStudentFault" name="fault"/>
+		</operation>
+
+		<operation name="deleteStudentByStudentID">
+
+			<input message="tns:deleteByIDInput" />
+			<fault message="tns:InvalidStudentIDFault" name="fault1" />
+			<fault message="tns:StudentIDNotFoundFault" name="fault2" />
+		</operation>
+		
+		<operation name="getStudentInfoByStudentID">
+
+			<input message="tns:getInfoByIdInput" />
+			<output message="tns:getInfoByIdOutput" />
+			<fault message="tns:InvalidStudentIDFault" name="fault1" />
+			<fault message="tns:StudentIDNotFoundFault" name="fault2" />
+		</operation>
+		
+		<operation name="getStudentInfoByStudentName" >
+
+			<input message="tns:getInfoByNameInput" />
+			<output message="tns:getInfoByNameOutput" />
+			<fault message="tns:StudentNameNotFoundFault" name="fault" />
+		</operation>
+
+		<operation name="modifyStudentInfo" >
+			<input message="tns:modInfoInput" />
+			<output message="tns:modInfoOutput" />
+			<fault message="tns:StudentNameNotFoundFault" name="fault1" />
+			<fault message="tns:InvalidStudentInfoFault" name="fault2" />
+
+		</operation>
+
+	</portType>
+
+	<binding name="StudentInfoManageBinding"
+		type="tns:StudentInfoManageInterface">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="addStudent">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+
+			<input>
+				<soap:body use="literal"/>
+			</input>
+
+			<fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</fault>
+
+		</operation>
+
+		<operation name="deleteStudentByStudentID">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+
+			<input>
+				<soap:body use="literal"/>
+			</input>
+
+			<fault name="fault1">
+				<soap:fault name="fault1" use="literal"/>
+			</fault>
+
+			<fault name="fault2">
+				<soap:fault name="fault2" use="literal"/>
+			</fault>
+
+		</operation>
+
+		<operation name="getStudentInfoByStudentID">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+
+			<input>
+				<soap:body use="literal"/>
+			</input>
+
+			<output>
+				<soap:body use="literal"/>
+			</output>
+
+			<fault name="fault1">
+				<soap:fault name="fault1" use="literal"/>
+			</fault>
+
+			<fault name="fault2">
+				<soap:fault name="fault2" use="literal"/>
+			</fault>
+
+		</operation>
+
+		<operation name="getStudentInfoByStudentName">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+
+			<input>
+				<soap:body use="literal"/>
+			</input>
+
+			<output>
+				<soap:body use="literal"/>
+			</output>
+
+			<fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</fault>
+
+		</operation>
+
+		<operation name="modifyStudentInfo">
+			<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+
+			<input>
+				<soap:body use="literal"/>
+			</input>
+
+			<output>
+				<soap:body use="literal"/>
+			</output>
+
+			<fault name="fault1">
+				<soap:fault name="fault1" use="literal"/>
+			</fault>
+
+			<fault name="fault2">
+				<soap:fault name="fault2" use="literal"/>
+			</fault>
+
+		</operation>
+	</binding>
+	
+	<service name="StudentInfoService">
+		<port name="StudentInfoEndpoint"
+			binding="tns:StudentInfoManageBinding">
+			<soap:address location="http://localhost:8080/assignment8Service/service/StudentInfo"/>
+		</port>
+	</service>
+</definitions>

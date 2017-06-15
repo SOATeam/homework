@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jw.nju.edu.cn/schema" xmlns:nju="http://www.nju.edu.cn/schema" targetNamespace="http://jw.nju.edu.cn/schema" elementFormDefault="qualified">
+	<include schemaLocation="Department.xsd"/>
+	<element name="学生信息" type="tns:个人基本信息类型"/>
+	<complexType name="个人基本信息类型">
+		<all>
+			<element name="姓名" type="string"/>
+			<element name="学号" type="tns:学号类型"/>
+			<element name="单位信息" type="tns:单位信息类型"/>
+		</all>
+	</complexType>
+	<simpleType name="学号类型">
+		<restriction base="string">
+			<length value="9"/>
+		</restriction>
+	</simpleType>
+</schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema  xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jw.nju.edu.cn/schema" xmlns:nju="http://www.nju.edu.cn/schema" targetNamespace="http://jw.nju.edu.cn/schema" elementFormDefault="qualified">
+	<element name="单位信息" type="tns:单位信息类型"/>
+	<complexType name="单位信息类型">
+		<all>
+			<element name="单位部门名" type="string"/>
+			<element name="部门编号" type="tns:部门编号类型"/>
+			<element name="职务" type="string"/>
+		</all>
+	</complexType>
+	<simpleType name="部门编号类型">
+		<restriction base="string">
+			<length value="4"/>
+		</restriction>
+	</simpleType>
+</schema>

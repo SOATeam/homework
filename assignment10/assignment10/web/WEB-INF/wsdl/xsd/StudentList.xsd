@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jw.nju.edu.cn/schema" xmlns:nju="http://www.nju.edu.cn/schema" targetNamespace="http://jw.nju.edu.cn/schema" elementFormDefault="qualified">
+	<include schemaLocation="Student.xsd"/>
+	<element name="学生列表" type="tns:学生列表信息"/>
+	<complexType name="学生列表信息">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element name="学生" type="tns:学生类型"/>
+		</sequence>
+	</complexType>
+	
+</schema>

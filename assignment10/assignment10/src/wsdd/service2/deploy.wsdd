@@ -1,0 +1,31 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentVerifyService WSDL wsdl -->
+
+  <service name="StudentVerifyEndpoint" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServiceElement" value="StudentVerifyService"/>
+      <parameter name="schemaQualified" value="http://jw.nju.edu.cn/schema"/>
+      <parameter name="schemaUnqualified" value="http://jw.nju.edu.cn/wsdl"/>
+      <parameter name="wsdlServicePort" value="StudentVerifyEndpoint"/>
+      <parameter name="className" value="wsdl.StudentVerifyBindingImpl"/>
+      <parameter name="wsdlPortType" value="StudentVerifyInterface"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="verifyStudent" qname="VerifyStudent" returnQName="retNS:验证结果" xmlns:retNS="http://jw.nju.edu.cn/wsdl" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://jw.nju.edu.cn/wsdl/VerifyStudent" >
+        <parameter qname="pns:验证信息" xmlns:pns="http://jw.nju.edu.cn/wsdl" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="fault" qname="fns:InvalidDataFault" xmlns:fns="http://jw.nju.edu.cn/wsdl" class="fault.InvalidVerifyFault" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="verifyStudent"/>
+
+  </service>
+</deployment>
